@@ -1,0 +1,110 @@
+
+<!--Task 1 for Virtual Labs IIT Roorkee by Kadambari Purohit-->
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Sign-up Form</title>
+      <style>
+         body {
+            background: #ccc;
+         }
+         form {
+            width: 350px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            background-color:lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+         .box{
+            padding: 3px 20px;            
+         }
+         h1{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+         label {
+            display: block;
+            margin-bottom: 8px;
+         }
+         input[type="text"],
+         input[type="password"],
+         input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+         }
+         button[type="submit"] {
+            border: none;
+            align: center;
+            padding: 10px 20px;            
+            background: #4CAF50;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+         }
+         .error-msg {
+            display: block;
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: auto;
+            width: 30%;
+            border-radius: 5px;
+            margin-top: 50px;
+         }
+      </style>
+   </head>
+   <body>
+      <form name="signup-form" onsubmit="return validateForm();" method="post">
+        <div class="box" >
+        <h1>Sign up Form</h1>
+    </div>
+         <label for="username">Username:</label>
+         <input type="text" name="username" id="username">
+         <label for="password">Password:</label>
+         <input type="password" name="password" id="password">
+         <label for="email">Email:</label>
+         <input type="email" name="email" id="email">
+         <label for="phone">Phone:</label>
+         <input type="text" name="phone" id="phone" placeholder="123-456-7890">
+         <label for="DOB">DOB:</label>
+         <input type = "text" placedholder="mm/dd/yyyy">
+         <br><br>
+        <button type="submit">Sign up</button>
+      </form>
+      <div class="error-msg" id="error-message"></div>
+      <script>
+         function validateForm() {
+            var username = document.forms["signup-form"]["username"].value;
+            var password = document.forms["signup-form"]["password"].value;
+            var email = document.forms["signup-form"]["email"].value;
+            var phone = document.forms["signup-form"]["phone"].value;
+            var error_message = document.getElementById("error-message");
+           
+            if (username == "" || username.length < 5 || username.length > 20) {
+               error_message.innerHTML = "Please enter a valid username (length should be between 5 to 20)";
+               return false;
+            }
+            if (password == "" || password.length < 7 || password.length > 12 || !password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{7,12}$/)) {
+               error_message.innerHTML = "Please enter a valid password (field and must be between 7 to 12, A lowercase letter, A upper case letter, A number)";
+               return false;
+            }
+            if (email == "" || !email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+               error_message.innerHTML = "Please enter a valid email";
+               return false;
+            }
+            if (phone == "" || !phone.match(/^\d{3}-\d{3}-\d{4}$/)) {
+               error_message.innerHTML = "Please enter a valid phone number (must be 10 digits with country code)";
+               return false;
+            }
+            return true;
+         }
+      </script>
+   </body>
+</html>
