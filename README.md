@@ -1,6 +1,8 @@
 # Task1_VirtualLabs_IITR
 Task 1 for virtual labs internship by IIT Roorkee. A simple sign up form created using HTML CSS JavaScript.
-Validations applied are - 
+Live Link https://kadambari68.github.io/Task1_VirtualLabs_IITR/
+
+Validations applied are 
 •	Username: Required (Length should be between 5 to 20
 •	Password: Required (field and must be between 7 to 12, A lowercase letter, A upper case letter, A number)
 •	Email: Required (must be a valid email)
